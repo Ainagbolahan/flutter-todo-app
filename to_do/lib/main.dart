@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:list_and_do/theme/theme_state.dart';
 import 'package:provider/provider.dart';
 
 import 'homePage.dart';
 import 'models/tasks_data.dart';
-import 'models/theme.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
@@ -22,11 +23,14 @@ class MyApp extends StatelessWidget {
           ChangeNotifierProvider<CardData>(
             create: (context) => CardData(),
           ),
+          ChangeNotifierProvider<ThemeState>(
+            create: (context) => ThemeState(),
+          ),
         ],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
-          themeMode: ThemeMode.system,
-          theme: ThemeClass.lightTheme,
+          theme: ThemeData(
+              primarySwatch: Colors.blue, canvasColor: Colors.transparent),
           // darkTheme: ThemeClass.darkTheme,
 
 // theme: ThemeData.dark().copyWith(outlinedButtonTheme: Colors.amberAccent),

@@ -30,27 +30,3 @@ class CardsList extends StatelessWidget {
     );
   }
 }
-
-// InkWell(
-// child: Card(
-// color: Colors.white,
-// child: Container(
-// alignment: Alignment.center,
-// width: 300,
-// height: 300,
-// child: Text(
-// '${Provider.of<CardData>(context).cardCount} Cards',
-// style: TextStyle(
-// color: Colors.white,
-// fontSize: 18,
-// ),
-// ),
-// ),
-// ),
-// onTap: () {
-// Navigator.of(context).push(MaterialPageRoute(
-// builder: (BuildContext context) {
-// return SecondPage();
-// }));
-// },
-// );

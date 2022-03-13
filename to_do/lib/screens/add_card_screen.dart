@@ -2,17 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:list_and_do/models/tasks_data.dart';
 import 'package:provider/provider.dart';
 
+import '../theme/theme_state.dart';
+
 class AddCardScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final state = Provider.of<ThemeState>(context);
     late String newCardTitle;
 
     return Container(
-      color: Color(0xff757572),
+      color: state.themeData.primaryColor,
       child: Container(
         padding: EdgeInsets.all(20.0),
         decoration: BoxDecoration(
-          color: Color(0xffefe9d0),
+          color: state.themeData.colorScheme.secondary,
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(10.0),
             topRight: Radius.circular(10.0),
@@ -29,12 +32,15 @@ class AddCardScreen extends StatelessWidget {
               ),
             ),
             TextField(
+              style: state.themeData.textTheme.headline5,
               decoration: InputDecoration(
                 enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.green, width: 0.1),
+                  borderSide: BorderSide(
+                    color: state.themeData.primaryColor,
+                    width: 0.1,
+                  ),
                 ),
               ),
-              style: TextStyle(color: Colors.black),
               autofocus: true,
               textAlign: TextAlign.center,
               onChanged: (newText) {

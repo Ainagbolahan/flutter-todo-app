@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:list_and_do/models/tasks_data.dart';
-import 'package:list_and_do/second_page.dart';
+import 'package:list_and_do/screens/second_page.dart';
 import 'package:provider/provider.dart';
 
 class CardsList extends StatelessWidget {

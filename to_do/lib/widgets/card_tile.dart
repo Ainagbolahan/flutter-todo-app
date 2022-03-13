@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
-import '../second_page.dart';
+import '../screens/second_page.dart';
 
 class CardTile extends StatelessWidget {
   // final bool isChecked;
@@ -12,43 +13,34 @@ class CardTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      child: Card(
-        child: Container(
-          color: Color(0xfffff5c9),
-          alignment: Alignment.center,
-          width: 300,
-          height: 300,
-          child: Text(
-            "Todo $cardTitle",
-            style: TextStyle(
-              fontSize: 18,
+    return Container(
+      height: 400.0,
+      width: 400.0,
+      child: InkWell(
+        child: Card(
+          color: Colors.blueGrey[200],
+          elevation: 5,
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(
+            30.0,
+          ))),
+          child: Center(
+            child: Text(
+              "Todo $cardTitle",
+              style: TextStyle(
+                fontSize: 18,
+              ),
             ),
           ),
         ),
+        onTap: () {
+          Navigator.of(context)
+              .push(MaterialPageRoute(builder: (BuildContext context) {
+            return SecondPage();
+          }));
+        },
+        onLongPress: longPressCallback,
       ),
-      onTap: () {
-        Navigator.of(context)
-            .push(MaterialPageRoute(builder: (BuildContext context) {
-          return SecondPage();
-        }));
-      },
-      onLongPress: longPressCallback,
     );
   }
 }
-
-// ListTile(
-// onLongPress: longPressCallback,
-// title: Text(
-// cardTitle,
-// // style: TextStyle(
-// //     // color: Colors.black,
-// //     decoration: isChecked ? TextDecoration.lineThrough : null),
-// ),
-// // trailing: Checkbox(
-// //   activeColor: Colors.lightBlueAccent,
-// //   value: isChecked,
-// //   onChanged: checkboxCallback,
-// // ),
-// );
